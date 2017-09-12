@@ -10,6 +10,14 @@ Use `ng serve --host <ipAddress> --port <port number>` in case you have netwrok 
   
 Some npm scripts are added to package.jso for usability.
 
+## Proxy settings:
+
+Commands:
+`git config --global http.proxy  http://n0272357:7Ranjana@www-proxy.lmig.com:80/`
+`git config --global https.proxy  http://n0272357:7Ranjana@www-proxy.lmig.com:80/`
+
+Disconnect LI vpn if can't pull.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
