@@ -15,6 +15,7 @@ Some npm scripts are added to package.jso for usability.
 ### Commands:
 
 `git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
+
 `git config --global https.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
 
 ### Reference:
