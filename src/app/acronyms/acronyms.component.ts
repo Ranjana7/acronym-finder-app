@@ -10,6 +10,7 @@ export class AcronymsComponent implements OnInit {
 
   errorMessage: string;
   searchAcronym: boolean = false;
+  isAnchorFilter: boolean = false;
   
       _listFilter: string;
       get listFilter(): string {
