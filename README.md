@@ -12,11 +12,14 @@ Some npm scripts are added to package.jso for usability.
 
 ## Proxy settings:
 
-Commands:
-`git config --global http.proxy  http://n0272357:7Ranjana@www-proxy.lmig.com:80/`
-`git config --global https.proxy  http://n0272357:7Ranjana@www-proxy.lmig.com:80/`
+### Commands:
 
-Disconnect LI vpn if can't pull.
+`git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
+`git config --global https.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
+
+### Reference:
+-- Disconnect vpn if can't pull.
+-- https://gist.github.com/evantoli/f8c23a37eb3558ab8765
 
 ## Code scaffolding
 
