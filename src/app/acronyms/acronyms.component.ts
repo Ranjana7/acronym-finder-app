@@ -28,8 +28,12 @@ export class AcronymsComponent implements OnInit {
       }
       performFilter(filterBy: string): IAcronym[] {
         filterBy = filterBy.toLocaleUpperCase();
-        return this.acronyms.filter((product: IAcronym) =>
-              product.acronymName.toLocaleUpperCase().indexOf(filterBy) !== -1);
+        if(this.isAnchorFilter){
+          return this.acronyms.filter((acronym: IAcronym) =>
+          acronym.acronymName.toLocaleUpperCase().indexOf(filterBy) !== -1 && acronym.acronymName.toLocaleUpperCase().startsWith(filterBy));
+        }
+        return this.acronyms.filter((acronym: IAcronym) =>
+        acronym.acronymName.toLocaleUpperCase().indexOf(filterBy) !== -1);
     }
     
     ngOnInit(): void {
@@ -54,6 +58,7 @@ export class AcronymsComponent implements OnInit {
     anchorFilter(filter: string) : void {
       this.listFilter = filter;
       this.searchAcronym = true;
+      this.isAnchorFilter=true;
     }
 
 }
