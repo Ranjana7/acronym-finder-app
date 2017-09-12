@@ -21,7 +21,7 @@ Some npm scripts are added to package.jso for usability.
 ### Reference:
 -- Disconnect vpn if can't pull.
 
--- [Git Hub] https://gist.github.com/evantoli/f8c23a37eb3558ab8765
+-- [Git Hub](https://gist.github.com/evantoli/f8c23a37eb3558ab8765).
 
 ## Code scaffolding
 
