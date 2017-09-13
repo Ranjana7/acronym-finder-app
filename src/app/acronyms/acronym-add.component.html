@@ -1,0 +1,34 @@
+<form [formGroup]="addForm" novalidate>
+    <p>Add new Acronym</p>
+
+    <div formArrayName="getAcronymForm" class="well well-lg">
+        <div *ngFor="let acronym of getAcronymForm.controls; let i=index" [formGroupName]="i">
+            <!-- The repeated address template -->
+            <h4>new Acronym #{{i + 1}}</h4>
+            <div style="margin-left: 1em;">
+                <div class="form-group">
+                    <label class="center-block">Acronym:
+              <input class="form-control" formControlName="acronym">
+            </label>
+                </div>
+                <div class="form-group">
+                    <label class="center-block">Full Form:
+              <input class="form-control" formControlName="fullform">
+            </label>
+                </div>
+                <div class="form-group">
+                    <label class="center-block">Description:
+              <input class="form-control" formControlName="description">
+            </label>
+                </div>
+                <div class="form-group">
+                    <label class="center-block">Wiki Links:
+              <input class="form-control" formControlName="wikilinks">
+            </label>
+                </div>
+            </div>
+            <br>
+            <!-- End of the repeated address template -->
+        </div>
+    </div>
+</form>
