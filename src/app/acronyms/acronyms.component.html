@@ -1,71 +1,71 @@
 <div class="panel-body">
-        <h4 class="text-primary">Click on the alphabet to see details of all associated acronyms:</h4>  
-        <nav class='navbar navbar-default'>
-            <div class='container-fluid'>
-                <ul class='nav nav-pills'>
-                    <li><a (click)='anchorFilter("a")'>A</a></li>
-                    <li><a (click)='anchorFilter("b")'>B</a></li>
-                    <li><a (click)='anchorFilter("c")'>C</a></li>
-                    <li><a (click)='anchorFilter("d")'>D</a></li>
-                    <li><a (click)='anchorFilter("e")'>E</a></li>
-                    <li><a (click)='anchorFilter("f")'>F</a></li>
-                    <li><a (click)='anchorFilter("g")'>G</a></li>
-                    <li><a (click)='anchorFilter("h")'>H</a></li>
-                    <li><a (click)='anchorFilter("i")'>I</a></li>
-                    <li><a (click)='anchorFilter("j")'>J</a></li>
-                    <li><a (click)='anchorFilter("k")'>K</a></li>
-                    <li><a (click)='anchorFilter("l")'>L</a></li>
-                    <li><a (click)='anchorFilter("m")'>M</a></li>
-                    <li><a (click)='anchorFilter("n")'>N</a></li>
-                    <li><a (click)='anchorFilter("o")'>O</a></li>
-                    <li><a (click)='anchorFilter("p")'>P</a></li>
-                    <li><a (click)='anchorFilter("q")'>Q</a></li>
-                    <li><a (click)='anchorFilter("r")'>R</a></li>
-                    <li><a (click)='anchorFilter("s")'>S</a></li>
-                    <li><a (click)='anchorFilter("t")'>T</a></li>
-                    <li><a (click)='anchorFilter("u")'>U</a></li>
-                    <li><a (click)='anchorFilter("v")'>V</a></li>
-                    <li><a (click)='anchorFilter("q")'>W</a></li>
-                    <li><a (click)='anchorFilter("x")'>X</a></li>
-                    <li><a (click)='anchorFilter("y")'>Y</a></li>
-                    <li><a (click)='anchorFilter("z")'>Z</a></li> 
-                </ul>
-            </div>
-        </nav>
-        <h4 class="text-primary">Search or Add your acronym below:</h4>
-        <div style="margin-bottom: 1em">
-          <button type="button" [class.disabled]="searchAcronym" (click)='search()' class='btn btn-primary'>Search Acronym</button>
-          <button type="button" class='btn btn-success' style="margin-left:3%;" (click)='add()'>Add new Acronym</button>
+    <h4 class="text-primary">Click on the alphabet to see details of all associated acronyms:</h4>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <ul class='nav nav-pills'>
+                <li><a (click)='anchorFilter("a")'>A</a></li>
+                <li><a (click)='anchorFilter("b")'>B</a></li>
+                <li><a (click)='anchorFilter("c")'>C</a></li>
+                <li><a (click)='anchorFilter("d")'>D</a></li>
+                <li><a (click)='anchorFilter("e")'>E</a></li>
+                <li><a (click)='anchorFilter("f")'>F</a></li>
+                <li><a (click)='anchorFilter("g")'>G</a></li>
+                <li><a (click)='anchorFilter("h")'>H</a></li>
+                <li><a (click)='anchorFilter("i")'>I</a></li>
+                <li><a (click)='anchorFilter("j")'>J</a></li>
+                <li><a (click)='anchorFilter("k")'>K</a></li>
+                <li><a (click)='anchorFilter("l")'>L</a></li>
+                <li><a (click)='anchorFilter("m")'>M</a></li>
+                <li><a (click)='anchorFilter("n")'>N</a></li>
+                <li><a (click)='anchorFilter("o")'>O</a></li>
+                <li><a (click)='anchorFilter("p")'>P</a></li>
+                <li><a (click)='anchorFilter("q")'>Q</a></li>
+                <li><a (click)='anchorFilter("r")'>R</a></li>
+                <li><a (click)='anchorFilter("s")'>S</a></li>
+                <li><a (click)='anchorFilter("t")'>T</a></li>
+                <li><a (click)='anchorFilter("u")'>U</a></li>
+                <li><a (click)='anchorFilter("v")'>V</a></li>
+                <li><a (click)='anchorFilter("q")'>W</a></li>
+                <li><a (click)='anchorFilter("x")'>X</a></li>
+                <li><a (click)='anchorFilter("y")'>Y</a></li>
+                <li><a (click)='anchorFilter("z")'>Z</a></li>
+            </ul>
         </div>
-        <div class="form-group" *ngIf='searchAcronym'>
-            <label class="center-block">Search:
+    </nav>
+    <h4 class="text-primary">Search or Add your acronym below:</h4>
+    <div style="margin-bottom: 1em">
+        <button type="button" [class.disabled]="searchAcronym" (click)='search()' class='btn btn-primary'>Search Acronym</button>
+        <button type="button" [class.disabled]="addNewAcronyms" (click)='add()' class='btn btn-primary'>Add new Acronym</button>
+        <div *ngIf="addNewAcronyms">
+            <acronym-add></acronym-add>
+        </div>
+    </div>
+    <div class="form-group" *ngIf='searchAcronym'>
+        <label class="center-block">Search:
               <input id = "searchInput" class="form-control" placeholder="Enter Acronym Here" type="text" [(ngModel)]='listFilter'/>
             </label>
-        </div>
-        <div class='table-responsive'>
-                <table class='table'
-                        *ngIf='filteredAcronyms && filteredAcronyms.length && searchAcronym'>
-                    <thead>
-                        <tr>
-                            <th>Acronym</th>
-                            <th>Full Form</th>
-                            <th>Description</th>
-                            <th>Wiki Links</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor='let acronym of filteredAcronyms'>
-                            <td>{{ acronym.acronymName }}</td>
-                            <td>{{ acronym.fullForm }}</td>
-                            <td>{{ acronym.description }}</td>
-                            <td>{{ acronym.wikilink }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-        </div>
-        
-    <div *ngIf="add">
-        <acronym-add></acronym-add>
     </div>
-    
- </div>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='filteredAcronyms && filteredAcronyms.length && searchAcronym'>
+            <thead>
+                <tr>
+                    <th>Acronym</th>
+                    <th>Full Form</th>
+                    <th>Description</th>
+                    <th>Wiki Links</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let acronym of filteredAcronyms'>
+                    <td>{{ acronym.acronymName }}</td>
+                    <td>{{ acronym.fullForm }}</td>
+                    <td>{{ acronym.description }}</td>
+                    <td>{{ acronym.wikilink }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>

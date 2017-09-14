@@ -11,7 +11,8 @@ export class AcronymsComponent implements OnInit {
   errorMessage: string;
   searchAcronym: boolean = false;
   isAnchorFilter: boolean = false;
-  
+  addNewAcronyms: boolean = false;
+
       _listFilter: string;
       get listFilter(): string {
           return this._listFilter;
@@ -48,18 +49,25 @@ export class AcronymsComponent implements OnInit {
 
     search(): void {
       this.searchAcronym = true;
+      this.addNewAcronyms = false;
     }
 
     add(): void {
+   
+    
       this.searchAcronym = false;
       this.filteredAcronyms = null;
       this.listFilter = null;
+      this.addNewAcronyms = true;
     }
 
     anchorFilter(filter: string) : void {
       this.listFilter = filter;
       this.searchAcronym = true;
       this.isAnchorFilter=true;
+      this.addNewAcronyms = false;
     }
+
+     
 
 }

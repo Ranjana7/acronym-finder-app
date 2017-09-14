@@ -1,34 +1,43 @@
-<form [formGroup]="addForm" novalidate>
-    <p>Add new Acronym</p>
-
-    <div formArrayName="getAcronymForm" class="well well-lg">
-        <div *ngFor="let acronym of getAcronymForm.controls; let i=index" [formGroupName]="i">
-            <!-- The repeated address template -->
-            <h4>new Acronym #{{i + 1}}</h4>
-            <div style="margin-left: 1em;">
-                <div class="form-group">
-                    <label class="center-block">Acronym:
-              <input class="form-control" formControlName="acronym">
-            </label>
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Full Form:
-              <input class="form-control" formControlName="fullform">
-            </label>
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Description:
-              <input class="form-control" formControlName="description">
-            </label>
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Wiki Links:
-              <input class="form-control" formControlName="wikilinks">
-            </label>
-                </div>
-            </div>
-            <br>
-            <!-- End of the repeated address template -->
-        </div>
+<form [formGroup]="iAcronym" (ngSubmit)="onSubmit()" novalidate>
+  <label>
+        <span>Acronym Name</span>
+        <input type="text" placeholder="acronym name" formControlName="acronymName">
+      </label>
+  <div class="error" *ngIf="iAcronym.get('acronymName').touched && iAcronym.get('acronymName').hasError('required')">
+    Acronym Name is required
+  </div>
+  <div>
+    <label>
+        <span>Description</span>
+        <input type="text" placeholder="description" formControlName="description">
+      </label>
+    <div class="error" *ngIf="iAcronym.get('description').touched && iAcronym.get('description').hasError('required')">
+      Description is required
     </div>
+  </div>
+
+  <div>
+    <label>
+        <span>Full Form</span>
+        <input type="text" placeholder="fullForm" formControlName="fullForm">
+      </label>
+    <div class="error" *ngIf="iAcronym.get('fullForm').touched && iAcronym.get('fullForm').hasError('required')">
+      Full Form is required
+    </div>
+  </div>
+
+  <div>
+    <label>
+        <span>Wiki Link</span>
+        <input type="text" placeholder="wikiLink" formControlName="wikiLink">
+      </label>
+    <div class="error" *ngIf="iAcronym.get('wikiLink').touched && iAcronym.get('wikiLink').hasError('required')">
+      WikiLink Name is required
+    </div>
+  </div>
+  <div>
+    <button type="submit" [disabled]="iAcronym.invalid">Save</button>
+    <button type="reset" (click)="reset()" [disabled]="iAcronym.invalid">Reset</button>
+
+  </div>
 </form>
